@@ -266,7 +266,22 @@ public class ListTester {
 
 		//List Iterator Scenarios
 		if (SUPPORTS_LIST_ITERATOR) {
-			// Place List Iterator Scenarios Here...
+				// Scenario: 57 
+			//TODO: Annette
+				// Scenario: 60 
+			//TODO: Annette
+				// Scenario: 66 
+			//TODO: Annette
+				// Scenario: 71 
+			//TODO: Annette
+				// Scenario: 87 
+			//TODO: Annette
+				// Scenario: 90 
+			//TODO: Annette
+				// Scenario: 96 
+			//TODO: Annette
+				// Scenario: 99
+			//TODO: Annette
 		}
 
 
@@ -736,6 +751,54 @@ public class ListTester {
 		return list;
 	}
 	private Scenario<Integer> ABC_iterRemoveAll_empty = () -> ABC_iterRemoveAll_empty();
+
+	/** Scenario #57: [A,B] -> list-iterator(1), next(), remove() -> [A]
+	 * 
+	 * @return [A] after list-iterator(1), next(), remove()
+	 */
+	// TODO: Jenna
+
+	/** Scenario #60: [A,B,C] -> list-iterator(1), next(), remove() -> [A,C]
+	 * 
+	 * @return [A, C] after list-iterator(1), next(), remove()
+	 */
+	// TODO: Jenna
+	
+	/** Scenario #66: [A] -> list-iterator(1), previous(), remove() -> []
+	 * 
+	 * @return [] after list-iterator(1), previous(), remove()
+	 */
+	// TODO: Jenna
+
+	/** Scenario #71: [A,B,C] -> list-iterator(2), previous(), remove() -> [A,C]
+	 * 
+	 * @return [A, C] after list-iterator(2), previous(), remove()
+	 */
+	// TODO: Jenna
+
+	/** Scenario #87: [A,B] -> list-iterator(0), next(), add(C) -> [A,C,B]
+	 * 
+	 * @return [A,C,B] after list-iterator(0), next(), add(C)
+	 */
+	// TODO: Jenna
+
+	/** Scenario #90: [A,B] -> list-iterator(2), previous(), add(C) -> [A,C,B]
+	 * 
+	 * @return [A,C,B] after list-iterator(2), previous(), add(C)
+	 */
+	// TODO: Jenna
+
+	/** Scenario #96: [A,B,C] -> list-iterator(1), next(), set(D) -> [A,D,C]
+	 * 
+	 * @return [A,D,C] after list-iterator(1), next(), set(D)
+	 */
+	// TODO: Jenna
+
+	/** Scenario #99: [A,B,C] -> list-iterator(2), previous(), set(D) -> [A,D,C]
+	 * 
+	 * @return [A,D,C] after list-iterator(2), previous(), set(D)
+	 */
+	// TODO: Jenna
 	 
 	/////////////////////////////////
 	//XXX Tests for 0-element list
@@ -1000,7 +1063,46 @@ public class ListTester {
 
 			// ListIterator
 			if (SUPPORTS_LIST_ITERATOR) {
-				//TODO: will add for double-linked list
+				//TODO: Luis
+				// listIterator() throws no Exception
+				// listIterator(), nextIndex() returns 0
+				// listIterator(), previousIndex() returns -1
+				// listIterator(-1) throws IndexOutOfBoundsException
+				// listIterator(0) throws no Exception
+				// listIterator(1) throws no Exception
+				// listIterator(2) throws no Exception
+				// listIterator(3) throws IndexOutOfBoundsException
+				// listIterator(0), hasPrevious() returns false
+				// listIterator(1), hasPrevious() returns true
+				// listIterator(2), hasPrevious() returns true
+				// listIterator(0), hasNext() returns true
+				// listIterator(1), hasNext() returns true
+				// listIterator(2), hasNext() returns false
+				// listIterator(0), previous() throws NoSuchElementException
+				// listIterator(1), previous() returns A
+				// listIterator(2), previous() returns C
+				// listIterator(0), next() returns A
+				// listIterator(1), next() returns C
+				// listIterator(2), next() throws NoSuchElementException
+				// listIterator(0), add(X) throws no Exception
+				// listIterator(1), add(X) throws no Exception
+				// listIterator(2), add(X) throws no Exception
+				// listIterator(0), nextIndex() returns 0
+				// listIterator(1), nextIndex() returns 1
+				// listIterator(2), nextIndex() returns 2
+				// listIterator(0), previousIndex() returns -1
+				// listIterator(1), previousIndex() returns 0
+				// listIterator(2), previousIndex() returns 1
+				// listIterator(0), set(X) throws IllegalStateException
+				// listIterator(0), remove() throws IllegalStateException
+				// listIterator(0), next(), set(X) throws no Exception
+				// listIterator(1), next(), set(X) throws no Exception
+				// listIterator(0), next(), remove() throws no Exception
+				// listIterator(1), next(), remove() throws no Exception
+				// listIterator(1), previous(), set(X) throws no Exception
+				// listIterator(2), previous(), set(X) throws no Exception
+				// listIterator(1), previous(), remove() throws no Exception
+				// listIterator(2), previous(), remove() throws no Exception
 			} else {
 				printTest(scenarioName + "_testListIter", testListIter(scenario.build(), Result.UnsupportedOperation));
 				printTest(scenarioName + "_testListIter0", testListIter(scenario.build(), 0, Result.UnsupportedOperation));
@@ -1107,7 +1209,59 @@ public class ListTester {
 
 			// ListIterator
 			if (SUPPORTS_LIST_ITERATOR) {
-				//TODO: will add for double-linked list
+				//TODO: Aaron
+
+ 				// listIterator() throws no Exception
+				// listIterator(), nextIndex() returns 0
+				// listIterator(), previousIndex() returns -1
+				// listIterator(-1) throws IndexOutOfBoundsException
+				// listIterator(0) throws no Exception
+				// listIterator(1) throws no Exception
+				// listIterator(2) throws no Exception
+				// listIterator(3) throws no Exception
+				// listIterator(4) throws IndexOutOfBoundsException
+				// listIterator(0), hasPrevious() returns false
+				// listIterator(1), hasPrevious() returns true
+				// listIterator(2), hasPrevious() returns true
+				// listIterator(3), hasPrevious() returns true
+				// listIterator(0), hasNext() returns true
+				// listIterator(1), hasNext() returns true
+				// listIterator(2), hasNext() returns true
+				// listIterator(3), hasNext() returns false
+				// listIterator(0), previous() throws NoSuchElementException
+				// listIterator(1), previous() returns A
+				// listIterator(2), previous() returns C
+				// listIterator(3), previous() returns B
+				// listIterator(0), next() returns A
+				// listIterator(1), next() returns C
+				// listIterator(2), next() returns B
+				// listIterator(3), next() throws NoSuchElementException
+				// listIterator(0), add(X) throws no Exception
+				// listIterator(1), add(X) throws no Exception
+				// listIterator(2), add(X) throws no Exception
+				// listIterator(3), add(X) throws no Exception
+				// listIterator(0), nextIndex() returns 0
+				// listIterator(1), nextIndex() returns 1
+				// listIterator(2), nextIndex() returns 2
+				// listIterator(3), nextIndex() returns 3
+				// listIterator(0), previousIndex() returns -1
+				// listIterator(1), previousIndex() returns 0
+				// listIterator(2), previousIndex() returns 1
+				// listIterator(3), previousIndex() returns 2
+				// listIterator(0), set(X) throws IllegalStateException
+				// listIterator(0), remove() throws IllegalStateException
+				// listIterator(0), next(), set(X) throws no Exception
+				// listIterator(1), next(), set(X) throws no Exception
+				// listIterator(2), next(), set(X) throws no Exception
+				// listIterator(0), next(), remove() throws no Exception
+				// listIterator(1), next(), remove() throws no Exception
+				// listIterator(2), next(), remove() throws no Exception
+				// listIterator(1), previous(), set(X) throws no Exception
+				// listIterator(2), previous(), set(X) throws no Exception
+				// listIterator(3), previous(), set(X) throws no Exception
+				// listIterator(1), previous(), remove() throws no Exception
+				// listIterator(2), previous(), remove() throws no Exception
+				// listIterator(3), previous(), remove() throws no Exception
 			} else {
 				printTest(scenarioName + "_testListIter", testListIter(scenario.build(), Result.UnsupportedOperation));
 				printTest(scenarioName + "_testListIter0", testListIter(scenario.build(), 0, Result.UnsupportedOperation));

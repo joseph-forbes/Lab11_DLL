@@ -215,6 +215,8 @@ public class IUDoubleLinkedList<E> implements IndexedUnsortedList<E> {
 
     @Override
     public ListIterator<E> listIterator(int startingIndex) {
+        if(startingIndex > size() || startingIndex < 0) throw new IndexOutOfBoundsException();
+        
         return new IUDoubleLinkedListIterator(startingIndex);
     }
     
