@@ -342,6 +342,10 @@ public class IUDoubleLinkedList<E> implements IndexedUnsortedList<E> {
         private ListIteratorCursor cursor;
         private int iterModCount;
         private E lastSeen;
+        private enum LastCalled {
+            PREVIOUS, NEXT, NULL
+        }
+        private LastCalled lastCalled;
 
         public IUDoubleLinkedListIterator() {
             this(0);
@@ -349,6 +353,7 @@ public class IUDoubleLinkedList<E> implements IndexedUnsortedList<E> {
         public IUDoubleLinkedListIterator(int startingIndex) {
             this.cursor = new ListIteratorCursor(startingIndex);
             lastSeen = null;
+            lastCalled = LastCalled.NULL;
             iterModCount = modCount;
         }
 
@@ -358,6 +363,7 @@ public class IUDoubleLinkedList<E> implements IndexedUnsortedList<E> {
 
             IUDoubleLinkedList.this.add(cursor.getVirtualIndex(), element);
             lastSeen = null;
+            lastCalled = LastCalled.NULL;
             iterModCount++;
         }
 
@@ -381,6 +387,7 @@ public class IUDoubleLinkedList<E> implements IndexedUnsortedList<E> {
             
             E element = get(cursor.getVirtualIndex());
             lastSeen = element;
+            lastCalled = LastCalled.NEXT;
             cursor.increment();
             return element;
         }
@@ -394,10 +401,12 @@ public class IUDoubleLinkedList<E> implements IndexedUnsortedList<E> {
         @Override
         public E previous() {
             if(iterModCount != modCount) throw new ConcurrentModificationException();
-            if(!hasPrevious()) throw new NoSuchElementException();
-            
-            E element = get(cursor.decrement()); // Decrement, then return next
+            cursor.decrement();
+            if(cursor.getVirtualIndex() < 0) throw new NoSuchElementException();
+
+            E element = get(cursor.getVirtualIndex()); // Decrement, then return next
             lastSeen = element;
+            lastCalled = LastCalled.PREVIOUS;
             return element;
         }
 
@@ -413,7 +422,9 @@ public class IUDoubleLinkedList<E> implements IndexedUnsortedList<E> {
             if(lastSeen == null) throw new IllegalStateException();
             
             IUDoubleLinkedList.this.remove(lastSeen);
+            if(lastCalled == LastCalled.NEXT) cursor.decrement();
             lastSeen = null;
+            lastCalled = LastCalled.NULL;
             iterModCount++;
         }
 
