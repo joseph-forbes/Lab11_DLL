@@ -364,7 +364,6 @@ public class IUDoubleLinkedList<E> implements IndexedUnsortedList<E> {
         @Override
         public boolean hasNext() {
             if(iterModCount != modCount) throw new ConcurrentModificationException();
-
             return cursor.getVirtualIndex() < size();
         }
 
@@ -438,7 +437,7 @@ public class IUDoubleLinkedList<E> implements IndexedUnsortedList<E> {
 
     @Override
     public ListIterator<E> listIterator() {
-        return listIterator();
+        return new IUDoubleLinkedListIterator();
     }
 
     @Override
