@@ -382,7 +382,6 @@ public class IUDoubleLinkedList<E> implements IndexedUnsortedList<E> {
 
         @Override
         public E next() {
-            System.out.println(IUDoubleLinkedList.this.toString());
             if(iterModCount != modCount) throw new ConcurrentModificationException();
             if(!hasNext()) throw new NoSuchElementException();
             
