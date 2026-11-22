@@ -758,47 +758,139 @@ public class ListTester {
 	 */
 	// TODO: Jenna
 
+	private IndexedUnsortedList<Integer> AB_listIterRemoveB_A() { 
+		IndexedUnsortedList<Integer> list = A_addToRearB_AB();
+		
+		ListIterator<Integer> iter = list.listIterator(1);
+		
+		iter.next();
+		iter.remove();
+		
+		return list;
+	}
+	private Scenario<Integer> AB_listIterRemoveB_A = () -> AB_listIterRemoveB_A();
+
 	/** Scenario #60: [A,B,C] -> list-iterator(1), next(), remove() -> [A,C]
 	 * 
 	 * @return [A, C] after list-iterator(1), next(), remove()
 	 */
 	// TODO: Jenna
-	
+	private IndexedUnsortedList<Integer> ABC_listIterRemoveB_AC() {
+		IndexedUnsortedList<Integer> list = AB_addAfterCB_ABC();
+
+		ListIterator<Integer> iter = list.listIterator(1);
+
+		iter.next();
+		iter.remove();
+
+		return list;
+	}
+	private Scenario<Integer> ABC_listIterRemoveB_AC = () -> ABC_listIterRemoveB_AC();
+
 	/** Scenario #66: [A] -> list-iterator(1), previous(), remove() -> []
 	 * 
 	 * @return [] after list-iterator(1), previous(), remove()
 	 */
 	// TODO: Jenna
+	private IndexedUnsortedList<Integer> A_listIterRemove_Empty() {
+		IndexedUnsortedList<Integer> list = emptyList_add0A_A();
+
+		ListIterator<Integer> iter = list.listIterator(1);
+
+		iter.previous();
+		iter.remove();
+
+		return list;
+	}
+	private Scenario<Integer> A_listIterRemove_Empty = () -> A_listIterRemove_Empty();
 
 	/** Scenario #71: [A,B,C] -> list-iterator(2), previous(), remove() -> [A,C]
 	 * 
 	 * @return [A, C] after list-iterator(2), previous(), remove()
 	 */
 	// TODO: Jenna
+	private IndexedUnsortedList<Integer> ABC_listIterPreviousRemoveB_AC() {
+		IndexedUnsortedList<Integer> list = AB_addAfterCB_ABC();
+
+		ListIterator<Integer> iter = list.listIterator(2);
+		
+		iter.previous();
+		iter.remove();
+
+		return list;
+	}
+	private Scenario<Integer> ABC_listIterPreviousRemoveB_AC = () -> ABC_listIterPreviousRemoveB_AC();
 
 	/** Scenario #87: [A,B] -> list-iterator(0), next(), add(C) -> [A,C,B]
 	 * 
 	 * @return [A,C,B] after list-iterator(0), next(), add(C)
 	 */
 	// TODO: Jenna
+	private IndexedUnsortedList<Integer> AB_listIterAddC_ACB() {
+		IndexedUnsortedList<Integer> list = A_addToRearB_AB();
+
+		ListIterator<Integer> iter = list.listIterator(0);
+
+		iter.next();
+		iter.add(ELEMENT_C);
+
+		return list;
+	}
+	private Scenario<Integer> AB_listIterAddC_ACB = () -> AB_listIterAddC_ACB();
 
 	/** Scenario #90: [A,B] -> list-iterator(2), previous(), add(C) -> [A,C,B]
 	 * 
 	 * @return [A,C,B] after list-iterator(2), previous(), add(C)
 	 */
 	// TODO: Jenna
+	private IndexedUnsortedList<Integer> AB_listIterPreviousAddC_ACB() {
+		IndexedUnsortedList<Integer> list = A_addToRearB_AB();
+
+		ListIterator<Integer> iter = list.listIterator(2);
+
+		iter.previous();
+		iter.add(ELEMENT_C);
+
+		return list;
+	}
+	private Scenario<Integer> AB_listIterPreviousAddC_ACB = () -> AB_listIterPreviousAddC_ACB();
+
 
 	/** Scenario #96: [A,B,C] -> list-iterator(1), next(), set(D) -> [A,D,C]
 	 * 
 	 * @return [A,D,C] after list-iterator(1), next(), set(D)
 	 */
 	// TODO: Jenna
+	private IndexedUnsortedList<Integer> ABC_listIterSetD_ADC() {
+		IndexedUnsortedList<Integer> list = AB_addAfterCB_ABC();
+
+		ListIterator<Integer> iter = list.listIterator(1);
+
+		iter.next();
+		iter.set(ELEMENT_D);
+
+		return list;
+	}
+	private Scenario<Integer> ABC_listIterSetD_ADC = () -> ABC_listIterSetD_ADC();
+
 
 	/** Scenario #99: [A,B,C] -> list-iterator(2), previous(), set(D) -> [A,D,C]
 	 * 
 	 * @return [A,D,C] after list-iterator(2), previous(), set(D)
 	 */
 	// TODO: Jenna
+	private IndexedUnsortedList<Integer> ABC_listIterPreviousSetD_ADC() {
+		IndexedUnsortedList<Integer> list = AB_addAfterCB_ABC();
+
+		ListIterator<Integer> iter = list.listIterator(2);
+
+		iter.previous();
+		iter.set(ELEMENT_D);
+
+		return list;
+	}
+	private Scenario<Integer> ABC_listIterPreviousSetD_ADC = () -> ABC_listIterPreviousSetD_ADC();
+
 	 
 	/////////////////////////////////
 	//XXX Tests for 0-element list
