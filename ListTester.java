@@ -267,21 +267,21 @@ public class ListTester {
 		//List Iterator Scenarios
 		if (SUPPORTS_LIST_ITERATOR) {
 				// Scenario: 57 
-			//TODO: Annette
+			testSingleElementList(AB_listIterRemoveB_A, "AB_listIterRemoveB_A", LIST_A, STRING_A);
 				// Scenario: 60 
-			//TODO: Annette
+			testTwoElementList(ABC_listIterRemoveB_AC, "ABC_listIterRemoveB_AC", LIST_AC, STRING_AC);
 				// Scenario: 66 
-			//TODO: Annette
+			testEmptyList(A_listIterRemove_Empty, "A_listIterRemove_Empty");
 				// Scenario: 71 
-			//TODO: Annette
+			testTwoElementList(ABC_listIterPreviousRemoveB_AC, "ABC_listIterPreviousRemoveB_AC", LIST_AC, STRING_AC);
 				// Scenario: 87 
-			//TODO: Annette
+			testThreeElementList(AB_listIterAddC_ACB, "AB_listIterAddC_ACB", LIST_ACB, STRING_ACB);
 				// Scenario: 90 
-			//TODO: Annette
+			testThreeElementList(AB_listIterPreviousAddC_ACB, "AB_listIterPreviousAddC_ACB", LIST_ACB, STRING_ACB);
 				// Scenario: 96 
-			//TODO: Annette
+			testThreeElementList(ABC_listIterSetD_ADC, "ABC_listIterSetD_ADC", LIST_ADC, STRING_ADC);
 				// Scenario: 99
-			//TODO: Annette
+			testThreeElementList(ABC_listIterPreviousSetD_ADC, "ABC_listIterPreviousSetD_ADC", LIST_ADC, STRING_ADC);
 		}
 
 
