@@ -1302,6 +1302,64 @@ public class ListTester {
 			// ListIterator
 			if (SUPPORTS_LIST_ITERATOR) {
 				//TODO: Aaron
+				// ListIterator construction and initial cursor indexes
+				printTest(scenarioName + "_testListIter", testListIter(scenario.build(), Result.NoException));
+				printTest(scenarioName + "_testListIterNextIndex", testListIterNextIndex(WrapIt.prep(scenario.build(), true).getListIterator(), 0, Result.MatchingValue));
+				printTest(scenarioName + "_testListIterPreviousIndex", testListIterPreviousIndex(WrapIt.prep(scenario.build(), true).getListIterator(), -1, Result.MatchingValue));
+				printTest(scenarioName + "_testListIterNeg1", testListIter(scenario.build(), -1, Result.IndexOutOfBounds));
+				for (int i = 0; i <= 3; i++) {
+					printTest(scenarioName + "_testListIter" + i, testListIter(scenario.build(), i, Result.NoException));
+				}
+				printTest(scenarioName + "_testListIter4", testListIter(scenario.build(), 4, Result.IndexOutOfBounds));
+
+				// Check navigation, returned elements, and cursor indexes at positions 0 through 3.
+				for (int i = 0; i <= 3; i++) {
+					String position = Integer.toString(i);
+					printTest(scenarioName + "_listIter" + position + "HasPrevious",
+							testListIterHasPrevious(WrapIt.prep(scenario.build(), i).getListIterator(),
+									i == 0 ? Result.False : Result.True));
+					printTest(scenarioName + "_listIter" + position + "HasNext",
+							testListIterHasNext(WrapIt.prep(scenario.build(), i).getListIterator(),
+									i == 3 ? Result.False : Result.True));
+					printTest(scenarioName + "_listIter" + position + "Previous",
+							testListIterPrevious(WrapIt.prep(scenario.build(), i).getListIterator(),
+									i == 0 ? null : contents[i - 1],
+									i == 0 ? Result.NoSuchElement : Result.MatchingValue));
+					printTest(scenarioName + "_listIter" + position + "Next",
+							testListIterNext(WrapIt.prep(scenario.build(), i).getListIterator(),
+									i == 3 ? null : contents[i],
+									i == 3 ? Result.NoSuchElement : Result.MatchingValue));
+					printTest(scenarioName + "_listIter" + position + "AddX",
+							testListIterAdd(WrapIt.prep(scenario.build(), i).getListIterator(), ELEMENT_X, Result.NoException));
+					printTest(scenarioName + "_listIter" + position + "NextIndex",
+							testListIterNextIndex(WrapIt.prep(scenario.build(), i).getListIterator(), i, Result.MatchingValue));
+					printTest(scenarioName + "_listIter" + position + "PreviousIndex",
+							testListIterPreviousIndex(WrapIt.prep(scenario.build(), i).getListIterator(), i - 1, Result.MatchingValue));
+				}
+
+				// set() and remove() are illegal until next() or previous() has been called.
+				printTest(scenarioName + "_listIterSetBeforeTraversal",
+						testListIterSet(WrapIt.prep(scenario.build(), 0).getListIterator(), ELEMENT_X, Result.IllegalState));
+				printTest(scenarioName + "_listIterRemoveBeforeTraversal",
+						testListIterRemove(WrapIt.prep(scenario.build(), 0).getListIterator(), Result.IllegalState));
+
+				// set() and remove() are valid after next() returns each of the three elements.
+				for (int i = 0; i < 3; i++) {
+					String position = Integer.toString(i);
+					printTest(scenarioName + "_listIter" + position + "NextSetX",
+							testListIterSet(WrapIt.prep(scenario.build(), i).next().getListIterator(), ELEMENT_X, Result.NoException));
+					printTest(scenarioName + "_listIter" + position + "NextRemove",
+							testListIterRemove(WrapIt.prep(scenario.build(), i).next().getListIterator(), Result.NoException));
+				}
+
+				// set() and remove() are valid after previous() returns each of the three elements.
+				for (int i = 1; i <= 3; i++) {
+					String position = Integer.toString(i);
+					printTest(scenarioName + "_listIter" + position + "PreviousSetX",
+							testListIterSet(WrapIt.prep(scenario.build(), i).previous().getListIterator(), ELEMENT_X, Result.NoException));
+					printTest(scenarioName + "_listIter" + position + "PreviousRemove",
+							testListIterRemove(WrapIt.prep(scenario.build(), i).previous().getListIterator(), Result.NoException));
+				}
 
  				// listIterator() throws no Exception
 				// listIterator(), nextIndex() returns 0
