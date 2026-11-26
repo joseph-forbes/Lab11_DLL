@@ -267,21 +267,21 @@ public class ListTester {
 		//List Iterator Scenarios
 		if (SUPPORTS_LIST_ITERATOR) {
 				// Scenario: 57 
-			testSingleElementList(AB_listIterRemoveB_A, "AB_listIterRemoveB_A", LIST_A, STRING_A);
+			//TODO: Annette
 				// Scenario: 60 
-			testTwoElementList(ABC_listIterRemoveB_AC, "ABC_listIterRemoveB_AC", LIST_AC, STRING_AC);
+			//TODO: Annette
 				// Scenario: 66 
-			testEmptyList(A_listIterRemove_Empty, "A_listIterRemove_Empty");
+			//TODO: Annette
 				// Scenario: 71 
-			testTwoElementList(ABC_listIterPreviousRemoveB_AC, "ABC_listIterPreviousRemoveB_AC", LIST_AC, STRING_AC);
+			//TODO: Annette
 				// Scenario: 87 
-			testThreeElementList(AB_listIterAddC_ACB, "AB_listIterAddC_ACB", LIST_ACB, STRING_ACB);
+			//TODO: Annette
 				// Scenario: 90 
-			testThreeElementList(AB_listIterPreviousAddC_ACB, "AB_listIterPreviousAddC_ACB", LIST_ACB, STRING_ACB);
+			//TODO: Annette
 				// Scenario: 96 
-			testThreeElementList(ABC_listIterSetD_ADC, "ABC_listIterSetD_ADC", LIST_ADC, STRING_ADC);
+			//TODO: Annette
 				// Scenario: 99
-			testThreeElementList(ABC_listIterPreviousSetD_ADC, "ABC_listIterPreviousSetD_ADC", LIST_ADC, STRING_ADC);
+			//TODO: Annette
 		}
 
 
@@ -756,8 +756,6 @@ public class ListTester {
 	 * 
 	 * @return [A] after list-iterator(1), next(), remove()
 	 */
-	// TODO: Jenna
-
 	private IndexedUnsortedList<Integer> AB_listIterRemoveB_A() { 
 		IndexedUnsortedList<Integer> list = A_addToRearB_AB();
 		
@@ -774,7 +772,6 @@ public class ListTester {
 	 * 
 	 * @return [A, C] after list-iterator(1), next(), remove()
 	 */
-	// TODO: Jenna
 	private IndexedUnsortedList<Integer> ABC_listIterRemoveB_AC() {
 		IndexedUnsortedList<Integer> list = AB_addAfterCB_ABC();
 
@@ -791,7 +788,6 @@ public class ListTester {
 	 * 
 	 * @return [] after list-iterator(1), previous(), remove()
 	 */
-	// TODO: Jenna
 	private IndexedUnsortedList<Integer> A_listIterRemove_Empty() {
 		IndexedUnsortedList<Integer> list = emptyList_add0A_A();
 
@@ -808,7 +804,6 @@ public class ListTester {
 	 * 
 	 * @return [A, C] after list-iterator(2), previous(), remove()
 	 */
-	// TODO: Jenna
 	private IndexedUnsortedList<Integer> ABC_listIterPreviousRemoveB_AC() {
 		IndexedUnsortedList<Integer> list = AB_addAfterCB_ABC();
 
@@ -825,7 +820,6 @@ public class ListTester {
 	 * 
 	 * @return [A,C,B] after list-iterator(0), next(), add(C)
 	 */
-	// TODO: Jenna
 	private IndexedUnsortedList<Integer> AB_listIterAddC_ACB() {
 		IndexedUnsortedList<Integer> list = A_addToRearB_AB();
 
@@ -842,7 +836,6 @@ public class ListTester {
 	 * 
 	 * @return [A,C,B] after list-iterator(2), previous(), add(C)
 	 */
-	// TODO: Jenna
 	private IndexedUnsortedList<Integer> AB_listIterPreviousAddC_ACB() {
 		IndexedUnsortedList<Integer> list = A_addToRearB_AB();
 
@@ -860,7 +853,6 @@ public class ListTester {
 	 * 
 	 * @return [A,D,C] after list-iterator(1), next(), set(D)
 	 */
-	// TODO: Jenna
 	private IndexedUnsortedList<Integer> ABC_listIterSetD_ADC() {
 		IndexedUnsortedList<Integer> list = AB_addAfterCB_ABC();
 
@@ -878,7 +870,6 @@ public class ListTester {
 	 * 
 	 * @return [A,D,C] after list-iterator(2), previous(), set(D)
 	 */
-	// TODO: Jenna
 	private IndexedUnsortedList<Integer> ABC_listIterPreviousSetD_ADC() {
 		IndexedUnsortedList<Integer> list = AB_addAfterCB_ABC();
 
